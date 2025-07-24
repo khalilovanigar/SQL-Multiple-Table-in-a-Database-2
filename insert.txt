@@ -1,0 +1,245 @@
+INSERT INTO Curators (CuratorName, CuratorSurname)
+VALUES 
+('John', 'Smith'),
+('Anna', 'Taylor'),
+('Bonny', 'Herley'),
+('Webb', 'Rumgay'),
+('Angelico', 'Caudrey'),
+('Rena', 'Munns'),
+('Angelina', 'Nice'),
+('Gibb', 'Grizard'),
+('Rorke', 'Winsborrow'),
+('Irvine', 'Rustedge'),
+('Lana', 'Bardsley'),
+('Marcus', 'Fleming'),
+('Nina', 'Kovalenko'),
+('Dylan', 'Stone'),
+('Sophie', 'Harrington'),
+('Kevin', 'Dorsey'),
+('Eliza', 'Munroe'),
+('Thomas', 'Langston'),
+('Isabelle', 'Keller'),
+('George', 'Carmichael'),
+('Clara', 'Brent'),
+('Brian', 'Wexler'),
+('Amelia', 'Draper'),
+('Simon', 'Petrov'),
+('Olivia', 'Rosetti'),
+('Jack', 'Cunningham'),
+('Emily', 'Swan'),
+('Victor', 'Haley'),
+('Grace', 'Delaney'),
+('Leo', 'Stark');
+
+-----------------------------------------------------------------------------------------------------
+    
+INSERT INTO Faculties (FacultyName)
+VALUES
+('Computer Science'),
+('Mathematics'),
+('English'),
+('Information Security'),
+('Information Technologies'),
+('Physics'),
+('Chemistry'),
+('Biology'),
+('Economics'),
+('Psychology');
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Departments (Building, Financing, DepartmentName, FacultyId)
+VALUES
+(1, 120000, 'Software Development', 1),
+(2, 90000, 'Applied Mathematics', 2),
+(3, 110000, 'Linguistics', 3),
+(4, 130000, 'Cybersecurity', 4),
+(5, 95000, 'Network Technologies', 5),
+(1, 100000, 'Artificial Intelligence', 6),
+(2, 85000, 'Pure Mathematics', 7),
+(3, 115000, 'English Literature', 8),
+(4, 125000, 'Computer Science', 9),
+(5, 90000, 'Database Systems', 10);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Groups (GroupName, StudyYear, DepartmentId)
+VALUES
+('D201', 2, 1),
+('D202', 2, 1),
+('D221', 5, 1),
+('D222', 5, 1),
+('D223', 5, 2),
+('D224', 4, 2),
+('D225', 3, 3),
+('D226', 1, 3),
+('D227', 4, 4),
+('D228', 5, 5);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO GroupsCurators (CuratorId, GroupId)
+VALUES
+(1, 1),
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 4),
+(6, 5),
+(7, 6),
+(8, 7),
+(9, 8),
+(10, 9);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Students (StudentName, StudentSurname, Rating)
+VALUES
+('Aylin', 'Mammadova', 4),
+('Elvin', 'Huseynov', 3),
+('Leyla', 'Aliyeva', 5),
+('Rashad', 'Ismayilov', 2),
+('Nergiz', 'Seyidova', 4),
+('Tural', 'Memmedli', 3),
+('Sevda', 'Quliyeva', 5),
+('Kamran', 'Rustamov', 1),
+('Aysel', 'Abdullayeva', 2),
+('Orkhan', 'Hasanov', 4),
+('Zeynab', 'Farajova', 5),
+('Fidan', 'Mahmudova', 3),
+('Elnur', 'Qasimov', 2),
+('Nijat', 'Quliyev', 4),
+('Aysun', 'Huseynli', 5),
+('Samir', 'Isgandarov', 3),
+('Gunay', 'Shahbazova', 4),
+('Elmar', 'Taghiyev', 1),
+('Kamala', 'Gurbanova', 5),
+('Farrukh', 'Mammadov', 3),
+('Natavan', 'Aliyeva', 4),
+('Ramil', 'Jabbarov', 2),
+('Gunel', 'Muradova', 5),
+('Emin', 'Farzaliyev', 3),
+('Amina', 'Hajiyeva', 4),
+('Rauf', 'Nasirov', 2),
+('Sevinj', 'Hasanova', 5),
+('Tahir', 'Abbasov', 3),
+('Zaur', 'Isayev', 4),
+('Fatima', 'Mammadli', 5);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Subjects (SubjectName)
+VALUES
+('Mathematics'),
+('Physics'),
+('Chemistry'),
+('Biology'),
+('Computer Science'),
+('English Language'),
+('Information Security'),
+('Software Development'),
+('Data Structures'),
+('Algorithms');
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Teachers (IsProfessor, TeacherName, TeacherSurname, Salary)
+VALUES
+(1, 'Elvin', 'Huseynov', 1500),
+(0, 'Aysel', 'Mammadova', 1200),
+(1, 'Rashad', 'Aliyev', 1600),
+(0, 'Leyla', 'Ismayilova', 1100),
+(1, 'Kerim', 'Quliyev', 1550),
+(0, 'Sevda', 'Abdullayeva', 1250),
+(1, 'Orkhan', 'Memmedov', 1700),
+(0, 'Nergiz', 'Farajova', 1150),
+(0, 'Samir', 'Rustamov', 1300),
+(1, 'Zeynab', 'Mahmudova', 1650),
+(0, 'Fidan', 'Huseynli', 1200),
+(1, 'Tural', 'Jabbarov', 1600),
+(0, 'Amina', 'Hasanova', 1100),
+(1, 'Elnur', 'Isgandarov', 1750),
+(0, 'Natavan', 'Muradova', 1250),
+(1, 'Elmar', 'Taghiyev', 1680),
+(0, 'Gunay', 'Gurbanova', 1150),
+(1, 'Rauf', 'Nasirov', 1720),
+(0, 'Fatima', 'Abbasova', 1300),
+(1, 'Zaur', 'Isayev', 1600);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO Lectures (DateOfLecture, SubjectId, TeacherId)
+VALUES
+('2025-06-10', 1, 1),
+('2025-06-11', 2, 2),
+('2025-06-12', 3, 3),
+('2025-06-13', 4, 4),
+('2025-06-14', 5, 5),
+('2025-06-15', 6, 6),
+('2025-06-16', 7, 7),
+('2025-06-17', 8, 8),
+('2025-06-18', 9, 9),
+('2025-06-19', 10, 10),
+('2025-06-20', 1, 11),
+('2025-06-21', 2, 12),
+('2025-06-22', 3, 13),
+('2025-06-23', 4, 14),
+('2025-06-24', 5, 15);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO GroupLectures (GroupId, LectureId)
+VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(1, 11),
+(2, 12),
+(3, 13),
+(4, 14),
+(5, 15);
+
+-----------------------------------------------------------------------------------------------------
+
+INSERT INTO GroupsStudents (GroupId, StudentId)
+VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(4, 10),
+(4, 11),
+(4, 12),
+(5, 13),
+(5, 14),
+(5, 15),
+(6, 16),
+(6, 17),
+(6, 18),
+(7, 19),
+(7, 20),
+(7, 21),
+(8, 22),
+(8, 23),
+(8, 24),
+(9, 25),
+(9, 26),
+(9, 27),
+(10, 28),
+(10, 29),
+(10, 30);
+
+
+-----------------------------------------------------------------------------------------------------

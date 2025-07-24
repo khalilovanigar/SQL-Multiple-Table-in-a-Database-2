@@ -1,0 +1,73 @@
+CREATE DATABASE Academy
+USE Academy
+
+CREATE TABLE Curators(
+    Id int Primary Key Identity(1,1),
+    CuratorName NVARCHAR(MAX) NOT NULL,
+    CuratorSurname NVARCHAR(MAX) NOT NULL
+)
+
+CREATE TABLE Faculties(
+    Id int Primary Key Identity(1,1),  
+    FacultyName NVARCHAR(100) NOT NULL UNIQUE
+)
+
+CREATE TABLE Departments(
+    Id int Primary Key Identity(1,1),
+    Building int NOT NULL CHECK(Building >= 1 and Building <= 5),
+    Financing money NOT NULL CHECK (Financing >= 0) DEFAULT 0,
+    DepartmentName NVARCHAR(100) NOT NULL UNIQUE,
+    FacultyId int NOT NULL FOREIGN KEY REFERENCES Faculties(Id)
+)
+
+CREATE TABLE Groups (
+    Id int Primary Key Identity(1,1),
+    GroupName NVARCHAR(10) NOT NULL UNIQUE,
+    StudyYear int NOT NULL CHECK (StudyYear >=1 and StudyYear <=5),
+    DepartmentId int NOT NULL FOREIGN KEY REFERENCES Departments(Id)  
+)
+
+CREATE TABLE GroupsCurators(
+    Id int Primary Key Identity(1,1),
+    CuratorId int NOT NULL FOREIGN KEY REFERENCES Curators(Id),
+    GroupId int NOT NULL FOREIGN KEY REFERENCES Groups(Id)
+)
+
+CREATE TABLE Students(
+    Id int PRIMARY KEY Identity(1,1),
+    StudentName NVARCHAR(MAX) NOT NULL,
+    StudentSurname NVARCHAR(MAX) NOT NULL,
+    Rating int NOT NULL CHECK (Rating >= 0 AND Rating <= 5)
+)
+
+CREATE TABLE Subjects (
+    Id int PRIMARY KEY Identity(1,1),   
+    SubjectName NVARCHAR(100) NOT NULL UNIQUE
+)
+
+CREATE TABLE Teachers(
+    Id int PRIMARY KEY Identity(1,1),  
+    IsProfessor bit NOT NULL DEFAULT 0,
+    TeacherName NVARCHAR(MAX) NOT NULL,
+    TeacherSurname NVARCHAR(MAX) NOT NULL,
+    Salary MONEY NOT NULL CHECK(Salary>=0)
+)
+
+CREATE TABLE Lectures(
+    Id int PRIMARY KEY Identity(1,1),
+    DateOfLecture date NOT NULL CHECK (DateOfLecture <= GETDATE()),
+    SubjectId int NOT NULL FOREIGN KEY REFERENCES Subjects(Id),
+    TeacherId int NOT NULL FOREIGN KEY REFERENCES Teachers(Id)
+)
+
+CREATE TABLE GroupLectures(
+    Id int Primary Key Identity(1,1),
+    GroupId int NOT NULL FOREIGN KEY REFERENCES Groups(Id),
+    LectureId int NOT NULL FOREIGN KEY REFERENCES Lectures(Id)
+)
+
+CREATE TABLE GroupsStudents(
+    Id int PRIMARY Key Identity(1,1),
+    GroupId int NOT NULL FOREIGN KEY REFERENCES Groups(Id),  
+    StudentId int NOT NULL FOREIGN KEY REFERENCES Students(Id)
+)
